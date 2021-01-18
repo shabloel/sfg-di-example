@@ -4,19 +4,19 @@ package com.dependencyinjection.di.controllers;
 import com.dependencyinjection.di.services.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Controller;
 
-@Service
-public class ConstructorInjectedController {
+@Controller
+public class I18nController {
 
-    private GreetingService greetingService;
+    private final GreetingService greetingService;
 
     @Autowired
-    public ConstructorInjectedController(@Qualifier("constructorGreetingService") GreetingService greetingService) {
+    public I18nController(@Qualifier("i18nService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
-    public String getGreeting(){
+    public String sayHello(){
         return greetingService.sayGreeting();
     }
 }

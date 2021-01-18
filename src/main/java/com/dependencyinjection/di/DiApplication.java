@@ -1,6 +1,7 @@
 package com.dependencyinjection.di;
 
 import com.dependencyinjection.di.controllers.ConstructorInjectedController;
+import com.dependencyinjection.di.controllers.I18nController;
 import com.dependencyinjection.di.controllers.MyController;
 
 import com.dependencyinjection.di.controllers.PropertyInjectedController;
@@ -17,9 +18,12 @@ public class DiApplication {
         ApplicationContext applC = SpringApplication.run(DiApplication.class, args);
 
         System.out.println("**********************");
+        I18nController i18nController = (I18nController)applC.getBean("i18nController");
+        System.out.println(i18nController.sayHello());
+
+        System.out.println("**********************");
         MyController myController = (MyController)applC.getBean("myController");
-        String greeting = myController.sayHello();
-        System.out.println(greeting);
+        System.out.println(myController.sayHello());
 
         System.out.println("**********************");
         PropertyInjectedController propertyInjectedController = (PropertyInjectedController)applC.getBean("propertyInjectedController");
