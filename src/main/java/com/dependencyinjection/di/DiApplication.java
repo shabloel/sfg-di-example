@@ -17,15 +17,15 @@ public class DiApplication {
 
         ApplicationContext applC = SpringApplication.run(DiApplication.class, args);
 
-        System.out.println("**********************");
+/*        System.out.println("**********************");
         I18nController i18nController = (I18nController)applC.getBean("i18nController");
-        System.out.println(i18nController.sayHello());
+        System.out.println(i18nController.sayHello());*/
 
         System.out.println("**********************");
         MyController myController = (MyController)applC.getBean("myController");
         System.out.println(myController.sayHello());
 
-        System.out.println("**********************");
+ /*       System.out.println("**********************");
         PropertyInjectedController propertyInjectedController = (PropertyInjectedController)applC.getBean("propertyInjectedController");
         System.out.println(propertyInjectedController.getGreeting());
         System.out.println("**********************");
@@ -35,7 +35,11 @@ public class DiApplication {
         System.out.println("**************************");
 
         ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) applC.getBean("constructorInjectedController");
-        System.out.println(constructorInjectedController.getGreeting());
+        System.out.println(constructorInjectedController.getGreeting());*/
+
+        System.out.println(applC.getBean(PropertyInjectedController.class).getGreeting());
+        System.out.println(applC.getBean(SetterInjectedController.class).getGreeting());
+        System.out.println(applC.getBean(ConstructorInjectedController.class).getGreeting());
     }
 
 }

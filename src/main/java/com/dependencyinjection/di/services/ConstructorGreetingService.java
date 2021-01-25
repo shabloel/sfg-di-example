@@ -1,5 +1,6 @@
 package com.dependencyinjection.di.services;
 
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -7,6 +8,6 @@ public class ConstructorGreetingService implements GreetingService{
 
     @Override
     public String sayGreeting() {
-        return "Hello everybody - constructor";
+        return "Hello - I was injected via the constructor!!!";
     }
 }
